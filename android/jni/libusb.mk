@@ -44,12 +44,15 @@ LOCAL_C_INCLUDES += \
 LOCAL_EXPORT_C_INCLUDES := \
   $(LIBUSB_ROOT_ABS)/libusb
 
-LOCAL_CFLAGS := -fvisibility=hidden -pthread
+LOCAL_CFLAGS :=
+	-fvisibility=hidden \
+	-pthread \
 
 LOCAL_LDLIBS := -llog
 
+USE_PC_NAME := 1
 ifeq ($(USE_PC_NAME),1)
-  LOCAL_MODULE := usb-1.0
+  LOCAL_MODULE := usb-1.0_v1_0_26
 else
   LOCAL_MODULE := libusb1.0
   $(warning Building to legacy library name libusb1.0, which differs from pkg-config.)
